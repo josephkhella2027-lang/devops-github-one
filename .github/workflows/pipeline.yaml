@@ -2,7 +2,7 @@ name: Full Stack CI
 
 on:
   push:
-    branches: [dev, main]
+    branches: [main]
     paths:
       - "frontend/train/**"
       - "backend/**"
