@@ -4,6 +4,8 @@ function HomePage() {
     <div>
         <h1>Home Page</h1>
         <input type="text" placeholder="email" />
+        <input type="text" placeholder="password" />
+
       
     </div>
   )
