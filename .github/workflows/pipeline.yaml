@@ -1,0 +1,42 @@
+name: Full Stack CI
+
+on:
+  push:
+    branches: [dev, main]
+    paths:
+      - 'frontend/train/**'
+      - 'backend/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # ---------------- FRONTEND ----------------
+      - name: Install frontend dependencies
+        working-directory: frontend/train
+        run: npm ci
+
+      - name: Build frontend React app
+        working-directory: frontend/train
+        run: npm run build
+
+      # ---------------- BACKEND ----------------
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Run backend tests (optional)
+        working-directory: backend
+        run: npm test || true
+
+      - name: build  backend 
+        working-directory: backend
+        run: npm run build
