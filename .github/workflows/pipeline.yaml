@@ -40,3 +40,12 @@ jobs:
       - name: build  backend
         working-directory: backend
         run: npm run build
+      # =========================
+      # FINAL STEP
+      # =========================
+
+      - name: Show repository files
+        run: ls -R
+
+      - name: CI Completed
+        run: echo "CI Pipeline completed successfully!"
