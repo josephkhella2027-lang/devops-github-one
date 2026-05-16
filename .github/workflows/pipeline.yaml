@@ -4,8 +4,8 @@ on:
   push:
     branches: [dev, main]
     paths:
-      - 'frontend/train/**'
-      - 'backend/**'
+      - "frontend/train/**"
+      - "backend/**"
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       # ---------------- FRONTEND ----------------
       - name: Install frontend dependencies
@@ -37,6 +37,6 @@ jobs:
         working-directory: backend
         run: npm test || true
 
-      - name: build  backend 
+      - name: build  backend
         working-directory: backend
         run: npm run build
