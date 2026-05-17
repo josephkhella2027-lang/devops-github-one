@@ -33,7 +33,7 @@ jobs:
 
       - name: Run backend tests (optional)
         working-directory: backend
-        run: npm test || true
+        run: npm test
 
       - name: build  backend
         working-directory: backend
